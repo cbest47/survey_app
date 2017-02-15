@@ -1,6 +1,7 @@
 
 <div ng-controller="surveysController as SC" ng-init="SC.showsurvey()">
 
+
 <div>
   <h1>{{SC.oneSurvey.survey_question}}</h1>
 
@@ -15,7 +16,7 @@
     <tbody>
       <tr>
         <th>{{SC.oneSurvey.option_one}}</th>
-        <th></th>
+        <th>{{SC.vote.vote_count}}</th>
         <th>
             <button ng-click="SC.vote('option1')" type="submit">Vote</button>
         </th>

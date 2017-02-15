@@ -1,13 +1,10 @@
 logApp.controller('surveysController', ['surveysFactory', '$routeParams', '$cookies', '$location', function(surveysFactory, $routeParams, $cookies, $location){
 
-
-
-
-
 var self = this;
 this.validationErrors;
 this.surveys = [];
 this.oneSurvey = [];
+this.vote = [];
 
 var signedin = $cookies.get('useridCookie');
 this.username = $cookies.get('usernameCookie');
@@ -43,6 +40,7 @@ this.vote = function(data){
     newVote.option_chosen = 'option_one'
     newVote.survey_question = self.oneSurvey.survey_question;
     surveysFactory.vote(newVote, function(data){
+      self.vote = data;
       $location.url('/surveys');
     })
   }
@@ -50,6 +48,7 @@ this.vote = function(data){
     newVote.option_chosen = 'option_two'
     newVote.survey_question = self.oneSurvey.survey_question;
     surveysFactory.vote(newVote, function(data){
+      self.vote = data;
       $location.url('/surveys');
     })
   }
@@ -57,6 +56,7 @@ this.vote = function(data){
     newVote.option_chosen = 'option_three'
     newVote.survey_question = self.oneSurvey.survey_question;
     surveysFactory.vote(newVote, function(data){
+      self.vote = data;
       $location.url('/surveys');
     })
   }
@@ -64,6 +64,7 @@ this.vote = function(data){
     newVote.option_chosen = 'option_four'
     newVote.survey_question = self.oneSurvey.survey_question;
     surveysFactory.vote(newVote, function(data){
+      self.vote = data;
       $location.url('/surveys');
     })
   }

@@ -28,6 +28,7 @@ var SurveySchema = new mongoose.Schema({
 	date_created: {
 		type: Date
 	}
+
 });
 
 

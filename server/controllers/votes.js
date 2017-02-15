@@ -15,18 +15,22 @@ module.exports = function(){
 					res.json(err);
 				}
 				else{
-          votes = Vote.count();
-          
-          console.log('Vote Count: ', votes);
-          data.vote_count = votes;
-					console.log(data);
-					res.json(data);
-				}
-			})
-		}
+            Vote.count({option_chosen: newVote.option_chosen}, function(err, count){
+    				if(err){
+    					console.log(err);
+    					res.statusCode = 422;
+    					res.json(err);
+    				}
+    				else{
+              console.log('Vote Count: ', count);
+              data = data.toJSON();
+              data['vote_count'] = count;
+              console.log(data);
 
-
-
-
-	}
+              res.json(data);
+    				}});
+          }
+			}
+    )}
+  }
 }();

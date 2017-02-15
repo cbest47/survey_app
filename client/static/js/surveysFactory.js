@@ -25,7 +25,10 @@ logApp.factory('surveysFactory', function($http){
 
 	factory.vote = function(vote, callback, errorCallback){
 		console.log(vote);
-		$http.post('/surveys/vote', vote).then(callback, errorCallback);
+		$http.post('/surveys/vote', vote).then(function(response){
+			vote = response.data
+			callback(vote); 
+		});
 	}
 
 
