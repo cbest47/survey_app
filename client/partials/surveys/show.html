@@ -1,0 +1,50 @@
+
+<div ng-controller="surveysController as SC" ng-init="SC.showsurvey()">
+
+<div>
+  <h1>{{SC.oneSurvey.survey_question}}</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Options</th>
+        <th>Vote Count</th>
+        <th>Place your Vote!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>{{SC.oneSurvey.option_one}}</th>
+        <th></th>
+        <th>
+            <button ng-click="SC.vote('option1')" type="submit">Vote</button>
+        </th>
+      </tr>
+      <tr>
+        <th>{{SC.oneSurvey.option_two}}</th>
+        <th></th>
+        <th>
+          <button ng-click="SC.vote('option2')" type="submit">Vote</button>
+        </th>
+      </tr>
+      <tr>
+        <th>{{SC.oneSurvey.option_three}}</th>
+        <th></th>
+        <th>
+            <button ng-click="SC.vote('option3')" type="submit">Vote</button>
+        </th>
+      </tr>
+      <tr>
+        <th>{{SC.oneSurvey.option_four}}</th>
+        <th></th>
+        <th>
+          <button ng-click="SC.vote('option4')" type="submit">Vote</button>
+        </th>
+      </tr>
+    </tbody>
+
+
+  </table>
+
+  <a href="/#!/surveys"><h4>Back<h4></a>
+</div>

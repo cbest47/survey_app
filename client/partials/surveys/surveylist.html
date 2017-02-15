@@ -1,0 +1,35 @@
+<div id="logout_button" ng-controller="usersController as UC">
+<button ng-click="UC.logout()" type="button" name="logout_button">Logout</button>
+</div>
+
+<h1>Here is your survey list</h1>
+
+<a href="/#!/surveys/new">Create a new survey</a>
+
+
+
+
+
+
+<div ng-init="SC.getAll()">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Question</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+<tbody ng-repeat="survey in SC.surveys">
+    <tr>
+      <td>{{survey.username}}</td>
+      <td><a href="/#!/surveys/{{survey._id}}">{{survey.survey_question}}</a></td>
+      <td>{{survey.date_created}}</td>
+      <td ng-if="survey.username == SC.username"><a href="#">Delete</a></td>
+    </tr>
+</tbody>
+
+  </table>
+
+</div>
